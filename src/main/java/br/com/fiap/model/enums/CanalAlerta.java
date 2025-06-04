@@ -1,4 +1,7 @@
 package br.com.fiap.model.enums;
 
-public class CanalAlerta {
+public enum CanalAlerta {
+    PUSH,
+    SMS,
+    EMAIL
 }

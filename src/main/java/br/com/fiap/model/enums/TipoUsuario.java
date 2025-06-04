@@ -1,4 +1,7 @@
 package br.com.fiap.model.enums;
 
-public class TipoUsuario {
+public enum TipoUsuario {
+    CIDADAO,
+    DEFESA_CIVIL,
+    ADMIN
 }

@@ -1,4 +1,6 @@
 package br.com.fiap.model.enums;
 
-public class StatusAlerta {
+public enum StatusAlerta {
+    ATIVO,
+    RESOLVIDO
 }

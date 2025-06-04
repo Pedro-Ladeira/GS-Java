@@ -1,4 +1,7 @@
 package br.com.fiap.model.enums;
 
-public class StatusOcorrencia {
+public enum StatusOcorrencia {
+    ABERTA,
+    VALIDADA,
+    RESOLVIDA
 }

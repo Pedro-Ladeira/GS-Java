@@ -1,4 +1,11 @@
 package br.com.fiap.dto;
 
-public class HistoricoManutencaoSensorDTO {
-}
+import java.time.LocalDateTime;
+
+public record HistoricoManutencaoSensorDTO(
+        Long id,
+        Long sensorId,
+        String descricao,
+        LocalDateTime dataManutencao,
+        String realizadoPor
+) {}

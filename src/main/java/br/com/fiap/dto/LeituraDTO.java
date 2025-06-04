@@ -1,4 +1,10 @@
 package br.com.fiap.dto;
 
-public class LeituraDTO {
-}
+import java.time.LocalDateTime;
+
+public record LeituraDTO(
+        Long id,
+        Long sensorId,
+        Double nivelAguaCm,
+        LocalDateTime dataHora
+) {}
