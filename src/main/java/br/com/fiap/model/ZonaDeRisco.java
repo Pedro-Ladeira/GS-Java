@@ -6,6 +6,7 @@ import java.util.List;
 
 @Entity
 public class ZonaDeRisco {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,5 +25,21 @@ public class ZonaDeRisco {
     @OneToMany(mappedBy = "zonaDeRisco")
     private List<Sensor> sensores;
 
-    // Getters, setters, construtores
+    // Getters e Setters (obrigatórios)
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
+    public Double getLatitude() { return latitude; }
+    public void setLatitude(Double latitude) { this.latitude = latitude; }
+    public Double getLongitude() { return longitude; }
+    public void setLongitude(Double longitude) { this.longitude = longitude; }
+    public Double getNivelCriticoCm() { return nivelCriticoCm; }
+    public void setNivelCriticoCm(Double nivelCriticoCm) { this.nivelCriticoCm = nivelCriticoCm; }
+    public LocalDateTime getDataCriacao() { return dataCriacao; }
+    public void setDataCriacao(LocalDateTime dataCriacao) { this.dataCriacao = dataCriacao; }
+    public List<Sensor> getSensores() { return sensores; }
+    public void setSensores(List<Sensor> sensores) { this.sensores = sensores; }
 }

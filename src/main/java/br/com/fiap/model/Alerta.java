@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 public class Alerta {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,5 +27,17 @@ public class Alerta {
     @Column(name = "data_hora")
     private LocalDateTime dataHora;
 
-    // Getters, setters, construtores
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public ZonaDeRisco getZonaDeRisco() { return zonaDeRisco; }
+    public void setZonaDeRisco(ZonaDeRisco zonaDeRisco) { this.zonaDeRisco = zonaDeRisco; }
+    public StatusAlerta getStatus() { return status; }
+    public void setStatus(StatusAlerta status) { this.status = status; }
+    public TipoAlerta getTipoAlerta() { return tipoAlerta; }
+    public void setTipoAlerta(TipoAlerta tipoAlerta) { this.tipoAlerta = tipoAlerta; }
+    public String getMensagem() { return mensagem; }
+    public void setMensagem(String mensagem) { this.mensagem = mensagem; }
+    public LocalDateTime getDataHora() { return dataHora; }
+    public void setDataHora(LocalDateTime dataHora) { this.dataHora = dataHora; }
 }

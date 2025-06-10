@@ -2,7 +2,9 @@ package br.com.fiap.service;
 
 import br.com.fiap.dto.SensorDTO;
 import br.com.fiap.model.Sensor;
+import br.com.fiap.model.ZonaDeRisco;
 import br.com.fiap.repository.SensorRepository;
+import br.com.fiap.repository.ZonaDeRiscoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -15,6 +17,9 @@ public class SensorService {
     @Autowired
     private SensorRepository sensorRepository;
 
+    @Autowired
+    private ZonaDeRiscoRepository zonaDeRiscoRepository;
+
     public SensorDTO salvar(SensorDTO dto) {
         Sensor sensor = convertToEntity(dto);
         sensor = sensorRepository.save(sensor);
@@ -23,7 +28,7 @@ public class SensorService {
 
     public SensorDTO buscarPorId(Long id) {
         Sensor sensor = sensorRepository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Sensor não encontrado com ID: " + id));
+                .orElseThrow(() -> new EntityNotFoundException("Sensor não encontrado"));
         return convertToDTO(sensor);
     }
 
@@ -38,9 +43,12 @@ public class SensorService {
         sensor.setLocalizacaoDetalhada(dto.localizacaoDetalhada());
         sensor.setLatitude(dto.latitude());
         sensor.setLongitude(dto.longitude());
-        sensor.setTipoSensor(dto.tipoSensor());
         sensor.setStatusOperacional(dto.statusOperacional());
-        // Implemente a busca da ZonaDeRisco se necessário
+        if (dto.zonaDeRiscoId() != null) {
+            ZonaDeRisco zona = zonaDeRiscoRepository.findById(dto.zonaDeRiscoId())
+                    .orElseThrow(() -> new EntityNotFoundException("Zona de risco não encontrada"));
+            sensor.setZonaDeRisco(zona);
+        }
         return sensor;
     }
 
@@ -51,7 +59,6 @@ public class SensorService {
                 sensor.getLocalizacaoDetalhada(),
                 sensor.getLatitude(),
                 sensor.getLongitude(),
-                sensor.getTipoSensor(),
                 sensor.getZonaDeRisco() != null ? sensor.getZonaDeRisco().getId() : null,
                 sensor.getStatusOperacional(),
                 sensor.getDataInstalacao()

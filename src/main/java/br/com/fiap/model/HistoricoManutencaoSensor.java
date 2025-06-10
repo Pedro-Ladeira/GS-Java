@@ -20,5 +20,45 @@ public class HistoricoManutencaoSensor {
 
     private String realizadoPor;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Sensor getSensor() {
+        return sensor;
+    }
+
+    public void setSensor(Sensor sensor) {
+        this.sensor = sensor;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public LocalDateTime getDataManutencao() {
+        return dataManutencao;
+    }
+
+    public void setDataManutencao(LocalDateTime dataManutencao) {
+        this.dataManutencao = dataManutencao;
+    }
+
+    public String getRealizadoPor() {
+        return realizadoPor;
+    }
+
+    public void setRealizadoPor(String realizadoPor) {
+        this.realizadoPor = realizadoPor;
+    }
+
     // Getters, setters, construtores
 }
